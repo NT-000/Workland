@@ -1,0 +1,67 @@
+# =========================================
+# Laravel / PHP / Blade + PHPStorm
+# =========================================
+
+# Environment
+.env
+.env.*
+!.env.example
+.env.local
+.env.backup
+
+# Laravel storage & cache
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/testing/*
+
+# Bootstrap cache
+/bootstrap/cache/*.php
+!bootstrap/cache/.gitignore
+
+# Vendor (Composer)
+vendor/
+
+# Node / Vite
+node_modules/
+public/hot
+public/storage
+public/mix-manifest.json
+public/build/
+public/js/*
+public/css/*
+
+# Tests
+.phpunit.result.cache
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Logs / PIDs
+*.log
+*.pid
+
+.docker/
+docker-compose.override.yml
+
+# =========================================
+# PHPStorm / JetBrains (IDE)
+# =========================================
+
+.idea/
+# .idea/*
+# !.idea/.gitignore
+# !.idea/codeStyles
+# !.idea/inspectionProfiles
+# !.idea/dictionaries
+# !.idea/runConfigurations
+
+*.iml
+out/
+
