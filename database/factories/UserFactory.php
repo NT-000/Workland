@@ -24,13 +24,14 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $gender = $this->faker->randomElement(['male', 'female']);
+        $faker = fake();
+        $gender = $faker->randomElement(['male', 'female']);
         $avatarIndex = $gender === 'male'
-            ? $this->faker->numberBetween(1, 5)
-            : $this->faker->numberBetween(6, 10);
+            ? $faker->numberBetween(1, 5)
+            : $faker->numberBetween(6, 10);
         return [
-            'name' => $this->faker->name($gender),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => $faker->name($gender),
+            'email' => $faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'avatar' => "avatars/{$avatarIndex}.png",
             'password' => static::$password ??= Hash::make('password'),
