@@ -1,2 +1,6 @@
 *
 !.gitignore
+!logos/
+!logos/*.png
+!avatars/
+!avatars/*.png
