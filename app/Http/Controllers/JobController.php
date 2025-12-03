@@ -75,7 +75,7 @@ class JobController extends Controller
         $validated = $this->getArr($request);
 
         if ($request->hasFile('company_logo')) {
-            Storage::delete('public/logos' . basename($job->company_logo));
+            Storage::delete('public/' . $job->company_logo);
             $validated['company_logo'] = $request->file('company_logo')->store('logos', 'public');
         }
 
@@ -147,7 +147,7 @@ class JobController extends Controller
         //check igf user is authorized
         $this->authorize('delete', $job);
         if (!empty($job->company_logo)) {
-            Storage::delete('public/logos' . $job->company_logo);
+            Storage::delete('public/' . $job->company_logo);
         }
         $job->delete();
         return redirect()->route('jobs.index')->with('success', 'Job deleted successfully.');

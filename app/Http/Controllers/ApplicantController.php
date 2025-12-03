@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicantController extends Controller
 {
@@ -65,6 +66,11 @@ class ApplicantController extends Controller
     public function destroy(Job $job, Applicant $applicant): RedirectResponse
     {
         $this->authorize('update', $job);
+        
+        if (!empty($applicant->resume_path)) {
+            Storage::delete('public/' . $applicant->resume_path);
+        }
+
         $applicant->delete();
         return redirect()->back()->with('success', 'The application has been removed.');
     }

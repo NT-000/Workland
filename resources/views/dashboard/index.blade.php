@@ -4,7 +4,7 @@
     <section class="flex" x-data="{
     open: false,
     preview: null,
-    defaultAvatar: '{{ auth()->user()->avatar }}',
+    defaultAvatar: '{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : asset('storage/avatars/def_avatar.jpg') }}',
     previewImage(event){
     const file = event.target.files?.[0];
     if(!file) return;

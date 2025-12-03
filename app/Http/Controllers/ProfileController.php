@@ -25,7 +25,7 @@ class ProfileController extends Controller
         if ($request->hasFile('avatar')) {
 
             if ($user->avatar) {
-                Storage::delete('public/avatars/' . basename($user->avatar));
+                Storage::delete('public/' . $user->avatar);
             }
             $validatedData['avatar'] = $request->file('avatar')->store('avatars', 'public');
             $hasAvatarChange = true;
