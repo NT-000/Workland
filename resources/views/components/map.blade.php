@@ -7,7 +7,7 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
 
 <script>
-    mapboxgl.accessToken = '{{ env('MAPBOX_API_KEY') }}';
+    mapboxgl.accessToken = '{{ config('services.mapbox.api_key') }}';
 
     const city = '{{ $job->city }}';
     const country = '{{ $job->country }}';

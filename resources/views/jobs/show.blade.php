@@ -206,11 +206,11 @@
         <aside class="lg:w-64 space-y-4">
             <div class="bg-white rounded-lg shadow-md p-4 flex justify-center">
                 @if($job->company_logo)
-                    <img src="{{asset($job->company_logo)}}"
+                    <img src="{{asset('storage/' . $job->company_logo)}}"
                          alt="{{$job->company_name}} logo"
                          class="rounded-2xl max-w-full h-auto object-cover">
                 @else
-                    <img src="{{asset('logos/def_workland.png')}}"
+                    <img src="{{asset('storage/logos/def_workland.png')}}"
                          alt="Default company logo"
                          class="rounded-2xl max-w-full h-auto object-cover">
                 @endif
