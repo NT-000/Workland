@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Faker\Generator as Faker;
 
 /**
  * @extends Factory<User>
@@ -25,14 +24,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $faker = \Faker\Factory::create();
-        $gender = $faker->randomElement(['male', 'female']);
+        $gender = $this->faker->randomElement(['male', 'female']);
         $avatarIndex = $gender === 'male'
-            ? $faker->numberBetween(1, 5)
-            : $faker->numberBetween(6, 10);
+            ? $this->faker->numberBetween(1, 5)
+            : $this->faker->numberBetween(6, 10);
         return [
-            'name' => $faker->name($gender),
-            'email' => $faker->unique()->safeEmail(),
+            'name' => $this->faker->name($gender),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'avatar' => "avatars/{$avatarIndex}.png",
             'password' => static::$password ??= Hash::make('password'),
